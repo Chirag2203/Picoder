@@ -5,7 +5,7 @@ import OrangeOutline from "./Buttons/OrangeOutline";
 
 const Hero = () => {
   return (
-    <div className="h-screen w-3/4 mx-auto pt-16">
+    <div className="min-h-screen w-3/4 mx-auto pt-16 ">
       <h1 className="text-5xl  font-extrabold text-center capitalize p-2  leading-normal bg-maingrad">
         <span>Convert your </span>
         <span

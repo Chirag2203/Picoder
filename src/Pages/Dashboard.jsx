@@ -2,8 +2,8 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div>
-      
+    <div className='min-h-screen mx-auto w-3/4'>
+      dashboard
     </div>
   )
 }

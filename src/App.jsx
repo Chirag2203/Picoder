@@ -6,6 +6,9 @@ import Hero from "./components/Hero";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import WorkStation from "./Pages/WorkStation";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Dashboard from "./Pages/Dashboard";
 export default function App() {
 
   return (
@@ -16,6 +19,9 @@ export default function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/workstation" element={<WorkStation />} />
           <Route path="*" element={<div className="text-center mt-32 ">404</div>} />
+          <Route path="/about" element={<About />} /> 
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path ="/dashboard" element={<Dashboard/>}/>
         </Routes>
 
         <Footer />

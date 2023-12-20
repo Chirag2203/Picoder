@@ -50,6 +50,7 @@ const Nav = () => {
           </p>
         </Link>
         <div class="flex  md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <a className="mx-2">sign in </a>
           <button
             type="button"
             class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
