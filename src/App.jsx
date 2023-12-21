@@ -9,7 +9,11 @@ import WorkStation from "./Pages/WorkStation";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Dashboard from "./Pages/Dashboard";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+
 export default function App() {
+  
 
   return (
     <main className="  flex flex-col items-center justify-between bg-maingrad bg-gray-900 ">
@@ -22,6 +26,8 @@ export default function App() {
           <Route path="/about" element={<About />} /> 
           <Route path="/contact" element={<Contact/>}/>
           <Route path ="/dashboard" element={<Dashboard/>}/>
+          <Route path="/login" element={<Login/>}/> 
+          <Route path="/signup" element={<Register />}/>
         </Routes>
 
         <Footer />

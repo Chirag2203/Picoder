@@ -1,11 +1,12 @@
 import React from "react";
 import { Gi3DGlasses } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { useUser } from "../Contexts/UserContext";
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const handleToggle = () => {
     setNavbarOpen((prev) => !prev);
-  }
+  };
   const navOptions = [
     {
       name: "Home",
@@ -31,8 +32,10 @@ const Nav = () => {
     },
   ];
 
+  const { isUserLoggedIn, userData, getUser } = useUser();
+  console.log(getUser);
   return (
-
+    
     <nav class="bg-white w-3/4 border-gray-200 dark:bg-gray-900">
       <div class=" flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex gap-4 items-center justify-center">
@@ -50,13 +53,12 @@ const Nav = () => {
           </p>
         </Link>
         <div class="flex  md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <a className="mx-2">sign in </a>
-          <button
+          {isUserLoggedIn ? (
+            <button
             type="button"
             class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
             id="user-menu-button"
             aria-expanded="false"
-            
           >
             <span class="sr-only">Open user menu</span>
             <img
@@ -65,11 +67,9 @@ const Nav = () => {
               alt="user photo"
               onClick={handleToggle}
             />
-          </button>
-              {navbarOpen && (
-                <div
-                class="z-50 absolute my-12 list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-              >
+
+            {navbarOpen && (
+              <div class="z-50 absolute my-12 list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
                 <div class="px-4 py-3">
                   <span class="block text-sm text-gray-900 dark:text-white">
                     Bonnie Green
@@ -78,19 +78,35 @@ const Nav = () => {
                     name@flowbite.com
                   </span>
                 </div>
-                  {innerOptions.map((option) => (
-                    <li>
-                      <Link
-                        to={option.link}
-                        class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600"
-                      >
-                        {option.name}
-                      </Link>
-                    </li>
-                  ))}
+                {innerOptions.map((option) => (
+                  <li>
+                    <Link
+                      to={option.link}
+                      class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600"
+                    >
+                      {option.name}
+                    </Link>
+                  </li>
+                ))}
               </div>
-                )}
-          
+            )}
+          </button>
+          ) : (
+            <div>
+            <Link
+              to="/login"
+              className="px-4 py-2 bg-transparent rounded-lg md:mt-0 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white "
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="px-4 py-2 bg-transparent rounded-lg md:mt-0 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white "
+            >
+              Signup
+            </Link>
+            </div>
+          )}
         </div>
         <div
           class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"

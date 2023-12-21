@@ -5,7 +5,7 @@ import { FaUserGear } from "react-icons/fa6";
 
 function Footer() {
   return (
-    <footer class="bg-white rounded-lg shadow w-full md:w-3/4 dark:bg-gray-800 mt-12">
+    <footer class="bg-white rounded-lg shadow w-full  dark:bg-gray-800 mt-12">
       <div class="w-full  p-4 sm:flex-row flex flex-col md:items-center md:justify-between">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023{" "}
